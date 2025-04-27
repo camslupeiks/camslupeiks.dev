@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@font-face {
+  font-family: "CoralPixels";
+  src: url("../assets/fonts/CoralPixels-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpecialGothic";
+  src: url("../assets/fonts/SpecialGothicExpandedOne-Regular.ttf")
+    format("truetype");
 }
 
 @theme {
-  --color-desertRose: #c27d74;
+  --font-coralPixels: "CoralPixels", sans-serif;
+  --font-specialGothic: "SpecialGothic", sans-serif;
+  --color-desertRose: ##f0ead6;
 }
 
 html,
 body {
+  font-family: var(--font-specialGothic);
+  background-color: var(--color-desertRose);
+  color: #000;
 }
