@@ -41,10 +41,9 @@ export function Welcome() {
       });
 
       const formatted = formatter.format(now);
-      const seconds = formatted.split(":")[2];
       const minutes = formatted.split(":")[1];
       const hours = formatted.split(":")[0];
-      const formattedTime = `${hours}:${minutes}:${seconds}`;
+      const formattedTime = `${hours}:${minutes}`;
       setTime(formattedTime);
     }, 1000);
 
@@ -64,17 +63,6 @@ export function Welcome() {
             filter: imageFilter,
           }}
         />
-        <motion.h1
-          className="absolute top-1/2 left-1/2 text-[12vw] whitespace-nowrap font-bold text-warmStone pointer-events-none"
-          style={{
-            translateX: "-50%",
-            translateY: "-50%",
-            opacity: textOpacity,
-            scale: textScale,
-          }}
-        >
-          <span>Hey, I'm Cam.</span>
-        </motion.h1>
         <motion.div
           className="fixed bottom-4 right-4 text-xs font-coralPixels text-gray-800 text-right"
           style={{
@@ -90,6 +78,34 @@ export function Welcome() {
           })}{" "}
           {time}
         </motion.div>
+        <motion.div
+          className="fixed bottom-4 left-4 text-lg  text-gray-700 "
+          style={{
+            opacity: useTransform(scrollY, [0, 50], [1, 0]),
+          }}
+        >
+          <span className="text-lg">
+            senior software engineer @{" "}
+            <a
+              href="https://www.brashinc.com/"
+              target="_blank"
+              className="hover:text-pink-500"
+            >
+              brash inc.
+            </a>
+          </span>
+        </motion.div>
+        <motion.h1
+          className="absolute top-1/2 left-1/2 text-[12vw] whitespace-nowrap font-bold text-warmStone pointer-events-none"
+          style={{
+            translateX: "-50%",
+            translateY: "-50%",
+            opacity: textOpacity,
+            scale: textScale,
+          }}
+        >
+          <span>Hey, I'm Cam.</span>
+        </motion.h1>
       </div>
     </section>
   );

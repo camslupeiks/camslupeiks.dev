@@ -32,24 +32,26 @@ export function Navbar() {
           duration: 6, // 20 seconds for one full spin (nice and slow)
           ease: "linear",
         }}
-        className="text-2xl font-bold font-coralPixels"
+        className="text-3xl font-bold font-coralPixels"
       >
         camslupeiks.dev
       </motion.div>
       <div className="flex gap-8">
-        <a href="mailto:me@camslupeiks.dev" className="hover:text-pink-500">
-          contact
-        </a>
-        <a
-          href="https://www.linkedin.com/in/cameronslupeiks/"
-          target="_blank"
-          className="hover:text-pink-500"
-        >
-          linkedin
-        </a>
-        <a href="#contact" className="hover:text-pink-500">
-          github
-        </a>
+        {[
+          { key: "contact", link: "mailto:me@camslupeiks.dev" },
+          { key: "linkedin", link: "https://www.linkedin.com/in/camslupeiks/" },
+          { key: "github", link: "https://github.com/camslupeiks" },
+        ].map(({ key, link }) => (
+          <a
+            key={key}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl hover:text-pink-500"
+          >
+            {key}
+          </a>
+        ))}
       </div>
     </motion.nav>
   );
