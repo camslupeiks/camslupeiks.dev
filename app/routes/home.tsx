@@ -1,4 +1,5 @@
 import { Navbar } from "~/navbar/navbar";
+import { Projects } from "~/projects/projects";
 import { Welcome } from "../welcome/welcome";
 import type { Route } from "./+types/home";
 
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Navbar />
       <Welcome />
+      <Projects />
     </>
   );
 }

@@ -20,7 +20,7 @@ export function Navbar() {
       initial={false}
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 bg-warmStone bg-opacity-90 flex items-center justify-between p-4 z-50"
+      className="fixed top-0 left-0 right-0 bg-opacity-90 flex items-center justify-between p-4 z-50"
     >
       <motion.div
         animate={{
@@ -41,13 +41,14 @@ export function Navbar() {
           { key: "contact", link: "mailto:me@camslupeiks.dev" },
           { key: "linkedin", link: "https://www.linkedin.com/in/camslupeiks/" },
           { key: "github", link: "https://github.com/camslupeiks" },
+          { key: "cv", link: "/resume.pdf" },
         ].map(({ key, link }) => (
           <a
             key={key}
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl hover:text-pink-500"
+            className="text-lg hover:text-pink-500"
           >
             {key}
           </a>

@@ -4,16 +4,15 @@ import img from "./me.jpeg";
 
 export function Welcome() {
   const containerRef = useRef(null);
-
   const { scrollY } = useScroll();
-  const [time, setTime] = useState<string>("");
+  const [time, setTime] = useState("");
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
-  // Image behavior
+  // Motion transforms
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const imageFilter = useTransform(
@@ -22,69 +21,62 @@ export function Welcome() {
     ["grayscale(100%)", "grayscale(0%)"],
   );
 
-  // Text behavior
-  const textOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const textScale = useTransform(scrollYProgress, [0, 1], [2, 0.5]); // << text starts at 2x and shrinks to normal
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+  const textScale = useTransform(scrollYProgress, [0, 0.6], [2, 1]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
+      const options = {
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit",
         hour12: false,
-      };
+      } as Intl.DateTimeFormatOptions;
+
       const formatter = new Intl.DateTimeFormat("en-CA", {
         ...options,
-        timeZone: "America/Toronto", // Ottawa timezone
+        timeZone: "America/Toronto",
       });
 
       const formatted = formatter.format(now);
-      const minutes = formatted.split(":")[1];
-      const hours = formatted.split(":")[0];
-      const formattedTime = `${hours}:${minutes}`;
-      setTime(formattedTime);
+      setTime(formatted);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-desertRose">
-      <div className="sticky top-0 flex flex-col items-center justify-center h-screen w-full overflow-hidden">
-        <motion.img
-          src={img}
-          alt="me"
-          className="w-[40vw] h-auto rounded"
-          style={{
-            scale: imageScale,
-            opacity: imageOpacity,
-            filter: imageFilter,
-          }}
-        />
-        <motion.div
-          className="fixed bottom-4 right-4 text-xs font-coralPixels text-gray-800 text-right"
-          style={{
-            opacity: useTransform(scrollY, [0, 50], [1, 0]),
-          }}
-        >
-          Ottawa, CA
-          <br />
-          {new Date().toLocaleDateString("en-CA", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          })}{" "}
-          {time}
-        </motion.div>
-        <motion.div
-          className="fixed bottom-4 left-4 text-lg  text-gray-700 "
-          style={{
-            opacity: useTransform(scrollY, [0, 50], [1, 0]),
-          }}
-        >
-          <span className="text-lg">
+    <div ref={containerRef}>
+      {/* INTRO SECTION */}
+      <section className="relative h-[300vh]">
+        <div className="sticky top-0 flex flex-col items-center justify-center h-screen w-full overflow-hidden">
+          <motion.img
+            src={img}
+            alt="me"
+            className="w-[40vw] h-auto rounded"
+            style={{
+              scale: imageScale,
+              opacity: imageOpacity,
+              filter: imageFilter,
+            }}
+          />
+          <motion.div
+            className="fixed bottom-4 right-4 text-xs font-coralPixels text-gray-800 text-right"
+            style={{
+              opacity: useTransform(scrollY, [0, 50], [1, 0]),
+            }}
+          >
+            Ottawa, CA
+            <br />
+            {new Date().toLocaleDateString("en-CA")} {time}
+          </motion.div>
+
+          <motion.div
+            className="fixed bottom-4 left-4 text-lg text-gray-800"
+            style={{
+              opacity: useTransform(scrollY, [0, 50], [1, 0]),
+            }}
+          >
             senior software engineer @{" "}
             <a
               href="https://www.brashinc.com/"
@@ -93,20 +85,25 @@ export function Welcome() {
             >
               brash inc.
             </a>
-          </span>
-        </motion.div>
-        <motion.h1
-          className="absolute top-1/2 left-1/2 text-[12vw] whitespace-nowrap font-bold text-warmStone pointer-events-none"
-          style={{
-            translateX: "-50%",
-            translateY: "-50%",
-            opacity: textOpacity,
-            scale: textScale,
-          }}
-        >
-          <span>Hey, I'm Cam.</span>
-        </motion.h1>
-      </div>
-    </section>
+          </motion.div>
+          <motion.div
+            className="absolute top-1/2 left-1/2 whitespace-nowrap text-center"
+            style={{
+              translateX: "-50%",
+              translateY: "-50%",
+              opacity: textOpacity,
+              scale: textScale,
+            }}
+          >
+            <h1 className="font-bold text-[12vw]">Hey, I'm Cam.</h1>
+            <span className="text-[2vw] text-gray-800 text-center">
+              I build things. I break things. I fix things. Here are some of
+              those{" "}
+              <span className="underline decoration-pink-500">things</span>.
+            </span>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
