@@ -35,7 +35,8 @@ const projects = [
   },
   {
     name: "Numbered",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Cross-platform tool for collectors to organize, track, and value their collections.",
     tools: [
       "React Native",
       "TypeScript",
