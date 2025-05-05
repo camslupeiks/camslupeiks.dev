@@ -32,7 +32,7 @@ export function Navbar() {
           duration: 6, // 20 seconds for one full spin (nice and slow)
           ease: "linear",
         }}
-        className="text-3xl font-bold font-coralPixels"
+        className="text-4xl font-bold font-coralPixels"
       >
         camslupeiks.dev
       </motion.div>
@@ -48,7 +48,7 @@ export function Navbar() {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg hover:text-pink-500"
+            className="text-2xl hover:text-pink-500"
           >
             {key}
           </a>

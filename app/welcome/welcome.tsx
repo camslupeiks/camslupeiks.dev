@@ -18,7 +18,7 @@ export function Welcome() {
   const imageFilter = useTransform(
     scrollYProgress,
     [0, 0.4],
-    ["grayscale(100%)", "grayscale(0%)"],
+    ["grayscale(0%)", "grayscale(100%)"],
   );
 
   const textOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
@@ -53,7 +53,7 @@ export function Welcome() {
           <motion.img
             src={img}
             alt="me"
-            className="w-[40vw] h-auto rounded"
+            className="w-[40vw] rounded-xl"
             style={{
               scale: imageScale,
               opacity: imageOpacity,
@@ -61,7 +61,7 @@ export function Welcome() {
             }}
           />
           <motion.div
-            className="fixed bottom-4 right-4 text-xs font-coralPixels text-gray-800 text-right"
+            className="fixed bottom-4 left-4 text-xs font-coralPixels text-gray-800"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
             }}
@@ -72,7 +72,7 @@ export function Welcome() {
           </motion.div>
 
           <motion.div
-            className="fixed bottom-4 left-4 text-lg text-gray-800"
+            className="fixed bottom-4 right-4 text-xl text-gray-800 font-coralPixels"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
             }}
@@ -81,7 +81,7 @@ export function Welcome() {
             <a
               href="https://www.brashinc.com/"
               target="_blank"
-              className="hover:text-pink-500"
+              className="underline"
             >
               brash inc.
             </a>
