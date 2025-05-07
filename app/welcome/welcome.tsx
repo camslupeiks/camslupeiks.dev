@@ -83,7 +83,7 @@ export function Welcome() {
           <motion.img
             src={images[imageIndex]}
             alt="me"
-            className="w-[35vw] h-[70vh] object-cover rounded-xl"
+            className="w-[40vw] h-[75vh] object-cover rounded-xl"
             style={{
               scale: imageScale,
               opacity: imageOpacity,
@@ -92,7 +92,23 @@ export function Welcome() {
           />
 
           <motion.div
-            className="fixed bottom-4 left-4 text-xs text-gray-800 font-"
+            className="fixed bottom-4 left-4 text-lg text-gray-600 font-semibold"
+            style={{
+              opacity: useTransform(scrollY, [0, 50], [1, 0]),
+            }}
+          >
+            Senior Software Engineer{"  "}🤝{"  "}
+            <a
+              href="https://www.brashinc.com/"
+              target="_blank"
+              className="hover:text-pink-500"
+            >
+              Brash Inc.
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="fixed bottom-4 right-4 text-xs text-gray-600 font-"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
             }}
@@ -100,22 +116,6 @@ export function Welcome() {
             Ottawa, CA
             <br />
             {new Date().toLocaleDateString("en-CA")} {time}
-          </motion.div>
-
-          <motion.div
-            className="fixed bottom-4 right-4 text-lg text-gray-800 font-medium"
-            style={{
-              opacity: useTransform(scrollY, [0, 50], [1, 0]),
-            }}
-          >
-            senior software engineer @{" "}
-            <a
-              href="https://www.brashinc.com/"
-              target="_blank"
-              className="underline"
-            >
-              brash inc.
-            </a>
           </motion.div>
 
           <motion.div
@@ -130,7 +130,7 @@ export function Welcome() {
             <h1 className="font-bold text-[12vw] font-specialGothic">
               Hey, I'm Cam.
             </h1>
-            <span className="text-[2vw] text-gray-800 text-center font-medium">
+            <span className="text-[2vw] text-gray-600 text-center font-medium">
               I build things. I break things. I fix things. Here are some of
               those{" "}
               <span className="underline decoration-pink-500">things</span>.

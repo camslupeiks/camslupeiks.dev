@@ -13,7 +13,8 @@ const projects = [
     tools: ["React", "TypeScript", "Mapbox", "MQTT", "Python", "AWS"],
     link: "https://www.velavu.com",
     image: velavuImage,
-    backgroundColor: "#f0f0ff",
+    primaryColor: "#f0f0ff",
+    secondaryColor: "#6C63FF",
   },
   {
     name: "Otis Dental",
@@ -22,7 +23,8 @@ const projects = [
     tools: ["React Native", "TypeScript", "Expo", "Firebase", "Node.js"],
     link: "https://hellootis.com/",
     image: otisImage,
-    backgroundColor: "#f1f0ec",
+    primaryColor: "#f1f0ec",
+    secondaryColor: "#8B4513",
   },
   {
     name: "Cryostasis",
@@ -31,7 +33,8 @@ const projects = [
     tools: ["Electron", "React", "TypeScript", "Node.js"],
     link: "https://www.cryostasis.ca/",
     image: cryostasisImage,
-    backgroundColor: "#ECF6FF",
+    primaryColor: "#ECF6FF",
+    secondaryColor: "#1D4ED8",
   },
   {
     name: "Numbered",
@@ -47,7 +50,8 @@ const projects = [
     ],
     link: "https://apps.apple.com/us/app/numbered/id6502341814",
     image: numberedImage,
-    backgroundColor: "#FAF9F6",
+    primaryColor: "#FAF9F6",
+    secondaryColor: "#2D3748",
   },
 ];
 
@@ -94,7 +98,7 @@ export function Projects() {
   return (
     <section
       className="max-w-screen h-screen relative overflow-x-hidden"
-      style={{ backgroundColor: current.backgroundColor }}
+      style={{ backgroundColor: current.primaryColor }}
     >
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
@@ -109,10 +113,10 @@ export function Projects() {
         >
           {/* Left Column */}
           <div className="w-full md:w-1/2 flex flex-col justify-center">
-            <h2 className="text-6xl md:text-7xl mb-8 text-gray-900 font-specialGothic">
+            <h2 className="text-6xl md:text-7xl mb-8 font-specialGothic">
               {current.name}
             </h2>
-            <p className="text-2xl text-gray-700 mb-6 font-medium">
+            <p className="text-2xl text-gray-600 mb-6 font-medium">
               {current.description}
             </p>
             <div className="mb-6">
@@ -123,7 +127,11 @@ export function Projects() {
                 {current.tools.map((tool, i) => (
                   <li
                     key={i}
-                    className="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-md font-medium"
+                    className="px-4 py-2 rounded-full text-md font-medium"
+                    style={{
+                      color: current.primaryColor,
+                      backgroundColor: current.secondaryColor,
+                    }}
                   >
                     {tool}
                   </li>
@@ -134,19 +142,34 @@ export function Projects() {
               href={current.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl text-pink-600 hover:underline font-semibold mt-4"
+              className="self-start text-lg font-medium mt-4 border px-4 py-2 rounded-full"
+              style={{
+                color: current.secondaryColor,
+                borderColor: current.secondaryColor,
+              }}
             >
               Learn more →
             </a>
           </div>
 
           {/* Right Column */}
-          <div className="w-full md:w-1/2 flex items-center justify-center">
-            <img
-              src={current.image}
-              alt={current.name}
-              className="max-w-full rounded-xl shadow-xl"
-            />
+          <div className="w-full md:w-1/2 flex items-center justify-center relative">
+            <a
+              href={current.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group"
+            >
+              <img
+                src={current.image}
+                alt={current.name}
+                className="max-w-full rounded-xl shadow-xl transition-all duration-300 ease-in-out group-hover:filter group-hover:blur-sm group-hover:scale-105 group-hover:brightness-50"
+              />
+              {/* Hover text */}
+              <span className="absolute inset-0 flex items-center justify-center text-2xl font-specialGothic text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                View project
+              </span>
+            </a>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -162,7 +185,7 @@ export function Projects() {
             }}
             className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
               i === index
-                ? "bg-pink-600 scale-200"
+                ? "bg-gray-800 scale-200"
                 : "bg-gray-400 hover:bg-pink-400"
             }`}
           />
