@@ -83,7 +83,7 @@ export function Welcome() {
           <motion.img
             src={images[imageIndex]}
             alt="me"
-            className="w-[40vw] h-[75vh] object-cover rounded-xl"
+            className="w-[40vw] h-[80vh] object-cover rounded-xl"
             style={{
               scale: imageScale,
               opacity: imageOpacity,
@@ -108,14 +108,13 @@ export function Welcome() {
           </motion.div>
 
           <motion.div
-            className="fixed bottom-4 right-4 text-xs text-gray-600 font-"
+            className="fixed bottom-4 right-4 text-gray-600"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
+              fontSize: "0.75rem",
             }}
           >
-            Ottawa, CA
-            <br />
-            {new Date().toLocaleDateString("en-CA")} {time}
+            {new Date().toLocaleDateString("en-CA")} {time} {"EST"}
           </motion.div>
 
           <motion.div
@@ -130,10 +129,13 @@ export function Welcome() {
             <h1 className="font-bold text-[12vw] font-specialGothic">
               Hey, I'm Cam.
             </h1>
-            <span className="text-[2vw] text-gray-600 text-center font-medium">
+            <span className="text-[2vw] text-gray-600 text-center font-semibold">
               I build things. I break things. I fix things. Here are some of
               those{" "}
-              <span className="underline decoration-pink-500">things</span>.
+              <span className="underline decoration-pink-500 text-pink-500">
+                things
+              </span>
+              .
             </span>
           </motion.div>
         </div>

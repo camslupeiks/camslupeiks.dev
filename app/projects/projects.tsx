@@ -142,13 +142,16 @@ export function Projects() {
               href={current.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="self-start text-lg font-medium mt-4 border px-4 py-2 rounded-full"
+              className="self-start text-lg font-medium mt-4 border px-4 py-2 rounded-full group transition-colors duration-300"
               style={{
                 color: current.secondaryColor,
                 borderColor: current.secondaryColor,
               }}
             >
-              Learn more →
+              Learn more{" "}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </a>
           </div>
 
