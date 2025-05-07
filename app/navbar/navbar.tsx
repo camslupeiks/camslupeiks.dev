@@ -22,21 +22,10 @@ export function Navbar() {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 bg-opacity-90 flex items-center justify-between p-4 z-50"
     >
-      <motion.div
-        animate={{
-          rotateY: [0, 360],
-        }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 6, // 20 seconds for one full spin (nice and slow)
-          ease: "linear",
-        }}
-        className="text-4xl font-bold font-coralPixels"
-      >
+      <motion.div className="text-2xl font-bold font-coralPixels">
         camslupeiks.dev
       </motion.div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 font-specialGothic">
         {[
           { key: "contact", link: "mailto:me@camslupeiks.dev" },
           { key: "linkedin", link: "https://www.linkedin.com/in/camslupeiks/" },
@@ -48,7 +37,7 @@ export function Navbar() {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-2xl hover:text-pink-500"
+            className="text-xl hover:text-pink-500"
           >
             {key}
           </a>

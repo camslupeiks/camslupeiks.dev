@@ -14,15 +14,19 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
 @theme {
   --font-coralPixels: "CoralPixels", sans-serif;
   --font-specialGothic: "SpecialGothic", sans-serif;
-  --color-desertRose: ##f0ead6;
+  --font-manrope: "Manrope", sans-serif;
 }
 
 html,
 body {
-  font-family: var(--font-specialGothic);
-  background-color: var(--color-desertRose);
   color: #000;
+  font-family: var(--font-manrope);
 }

@@ -93,7 +93,7 @@ export function Projects() {
 
   return (
     <section
-      className="w-screen h-screen relative overflow-hidden"
+      className="max-w-screen h-screen relative overflow-x-hidden"
       style={{ backgroundColor: current.backgroundColor }}
     >
       <AnimatePresence custom={direction} mode="wait">
@@ -105,16 +105,18 @@ export function Projects() {
           animate="center"
           exit="exit"
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="absolute top-0 left-0 w-full h-full flex flex-col md:flex-row p-12 gap-12"
+          className="absolute top-0 left-0 max-w-full h-full flex flex-col md:flex-row p-12 gap-12"
         >
           {/* Left Column */}
           <div className="w-full md:w-1/2 flex flex-col justify-center">
-            <h2 className="text-6xl md:text-7xl font-bold mb-8 text-gray-900">
+            <h2 className="text-6xl md:text-7xl mb-8 text-gray-900 font-specialGothic">
               {current.name}
             </h2>
-            <p className="text-2xl text-gray-700 mb-6">{current.description}</p>
+            <p className="text-2xl text-gray-700 mb-6 font-medium">
+              {current.description}
+            </p>
             <div className="mb-6">
-              <span className="font-semibold text-xl text-gray-800">
+              <span className="font-bold text-xl text-gray-800">
                 Tools I used:
               </span>
               <ul className="flex flex-wrap gap-3 mt-3">
@@ -158,9 +160,9 @@ export function Projects() {
               setLastInteractionTime(Date.now());
               setIndex([i, i > index ? 1 : -1]);
             }}
-            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
               i === index
-                ? "bg-pink-600 scale-125"
+                ? "bg-pink-600 scale-200"
                 : "bg-gray-400 hover:bg-pink-400"
             }`}
           />
