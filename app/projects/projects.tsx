@@ -116,7 +116,7 @@ export function Projects() {
             <h2 className="text-6xl md:text-7xl mb-8 font-specialGothic">
               {current.name}
             </h2>
-            <p className="text-2xl text-gray-600 mb-6 font-medium">
+            <p className="text-2xl text-gray-600 mb-6 font-regular">
               {current.description}
             </p>
             <div className="mb-6">

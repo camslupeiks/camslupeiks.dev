@@ -92,12 +92,12 @@ export function Welcome() {
           />
 
           <motion.div
-            className="fixed bottom-4 left-4 text-lg text-gray-600 font-semibold"
+            className="fixed bottom-4 left-4 text-lg text-gray-600 font-medium"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
             }}
           >
-            Senior Software Engineer{"  "}🤝{"  "}
+            Senior Software Engineer @{" "}
             <a
               href="https://www.brashinc.com/"
               target="_blank"
@@ -108,7 +108,7 @@ export function Welcome() {
           </motion.div>
 
           <motion.div
-            className="fixed bottom-4 right-4 text-gray-600"
+            className="fixed bottom-4 right-4 text-gray-600 font-medium"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
               fontSize: "0.75rem",
@@ -129,7 +129,7 @@ export function Welcome() {
             <h1 className="font-bold text-[12vw] font-specialGothic">
               Hey, I'm Cam.
             </h1>
-            <span className="text-[2vw] text-gray-600 text-center font-semibold">
+            <span className="text-[2vw] text-gray-600 text-center font-mediumd">
               I build things. I break things. I fix things. Here are some of
               those{" "}
               <span className="underline decoration-pink-500 text-pink-500">
