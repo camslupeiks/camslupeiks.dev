@@ -92,7 +92,7 @@ export function Welcome() {
           />
 
           <motion.div
-            className="fixed bottom-4 left-4 text-lg text-gray-600 font-medium"
+            className="fixed bottom-4 left-4 text-lg text-gray-600 font-semibold"
             style={{
               opacity: useTransform(scrollY, [0, 50], [1, 0]),
             }}

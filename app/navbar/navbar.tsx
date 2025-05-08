@@ -22,10 +22,13 @@ export function Navbar() {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 bg-opacity-90 flex items-center justify-between p-4 z-50"
     >
-      <motion.div className="text-3xl font-bold font-specialGothic border border-dotted border-2 rounded-full px-4 py-2">
-        <a href="/">cs.dev</a>
-      </motion.div>
-      <div className="flex gap-8 font-specialGothic">
+      <a
+        href="/"
+        className="text-2xl font-specialGothic border-dotted border-3 rounded-full px-4 py-2 hover:border-pink-500 hover:text-pink-500"
+      >
+        cs.dev
+      </a>
+      <div className="flex gap-4 font-specialGothic">
         {[
           { key: "contact", link: "mailto:me@camslupeiks.dev" },
           { key: "linkedin", link: "https://www.linkedin.com/in/camslupeiks/" },
@@ -37,7 +40,7 @@ export function Navbar() {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl hover:text-pink-500"
+            className="text-xl hover:text-pink-500 italic"
           >
             {key}
           </a>
